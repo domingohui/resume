@@ -11,17 +11,21 @@
                 <div id="resume_wrapper">
                     <div id="header_relative">
                         <div id="header">
+                            <!--Header and contact info-->
                             <header-info 
-                             v-bind:name="name"
-                             v-bind:email="email"
-                             v-bind:github="github"
-                             v-bind:phone="phone"
-                             v-bind:website="website"
+                             v-bind:header_details="header_details"
                              ></header-info>
+                        </div>
+                        <div id="resume_body">
+                            <work-experience-section 
+                             id="work_experience_section" 
+                             v-bind:items="data"
+                             >
+                            </work-experience-section>
                         </div>
                     </div>
                 </div>
             </div>
-        <script src="main.js"></script>
+            <script src="main.js"></script>
     </body>
 </html>

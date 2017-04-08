@@ -49,15 +49,15 @@ Vue.component('phone', {
 
 
 Vue.component('header-info', {
-    props: ['name', 'email', 'github', 'phone', 'website'],
+    props: ['header_details'],
     template: `
     <div>
-    <h1>{{ name }}</h1> 
+    <h1>{{ header_details.name }}</h1> 
     <div class="contact_info">
-    <email v-bind:data=email></email>
-    <github v-bind:data=github></github>
-    <phone v-bind:data=phone></phone>
-    <website v-bind:data=website></website>
+    <email v-bind:data=header_details.email></email>
+    <github v-bind:data=header_details.github></github>
+    <phone v-bind:data=header_details.phone></phone>
+    <website v-bind:data=header_details.website></website>
     </div>
     </div>
     `
@@ -65,7 +65,41 @@ Vue.component('header-info', {
 
 var header = new Vue({
     el: '#header',
-    data: data
+    data: {
+        header_details: data.header
+    }
 });
 
 /* End header */
+
+
+/* Section item */
+Vue.component('section-item', {
+    props: ['section_details'],
+    template: `
+    <div>{{ section_details }}</div>
+    `
+});
+/* End section item */
+
+
+/* Work experience */
+
+// Mounting point of work experience section
+Vue.component('work-experience-section', {
+    props: ['items'],
+    template: `
+    <div class="section">
+    <h2>Work Experience</h2>
+    <section-item v-for="item in items" v-bind:section_details="item"></section-item>
+    </div>
+    `
+});
+
+var work_experience = new Vue({
+    el: '#work_experience_section',
+    data: { 
+        data:['hello','world']
+    }
+});
+/* End work experience */
