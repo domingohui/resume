@@ -17,10 +17,15 @@ Vue.component('email', {
 Vue.component('website', {
     props: ['data'],
     // TODO: trim protocol prefixes
+    computed: {
+        link: function() {
+            return this.data.replace(/http[s]*:\/\//i, '').replace(/w{3}\./i, '');
+        }
+    },
     template: `
         <div>
         <img class="svg-icon" src="icons/link.svg" />
-        <a :href=data>{{ data }}</a>
+        <a :href=data>{{ link }}</a>
         </div>
     `
 });
@@ -51,7 +56,7 @@ Vue.component('github', {
 Vue.component('linkedin', {
     props: ['data'],
     computed: {
-        href_data: function() { return 'https://linkedin.com/in/' + this.data + '/'; }
+        href_data: function() { return 'https://www.linkedin.com/in/' + this.data + '/'; }
     },
     template: `
         <div>
@@ -268,10 +273,13 @@ Vue.component('simple-section', {
     template: `
     <div v-if="flatten_data" class="section">
     <h2>{{ section_name }}</h2>
+
     <div class="section_content">
-    <p v-if="flatten_data.length == 1" v-for="i in flatten_data">{{ i }}</p>
+    <div class="inner_content">
     <list v-bind:items="flatten_data"></list>
     </div>
+    </div>
+
     </div>
     `
 });
