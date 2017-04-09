@@ -17,11 +17,19 @@
                              ></header-info>
                         </div>
                         <div id="resume_body">
-                            <work-experience-section 
+                            <section-wrapper
                              id="work_experience_section" 
-                             v-bind:items="data"
+                             v-bind:data="data"
+                             v-bind:section_name="section_name"
                              >
-                            </work-experience-section>
+                            </section-wrapper>
+
+                            <section-wrapper
+                             id="project_section" 
+                             v-bind:data="data"
+                             v-bind:section_name="section_name"
+                             >
+                            </section-wrapper>
                         </div>
                     </div>
                 </div>
