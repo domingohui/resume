@@ -102,7 +102,7 @@ Vue.component('date-ranges', {
             let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             function process_date (d) {
-                return months[d.getMonth()-1] + '.' + d.getFullYear();
+                return months[d.getMonth()] + '.' + d.getFullYear();
             }
 
             function date_eqaul (a,b) {
