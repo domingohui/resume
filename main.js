@@ -44,6 +44,18 @@ Vue.component('github', {
     `
 });
 
+Vue.component('linkedin', {
+    props: ['data'],
+    computed: {
+        href_data: function() { return 'https://linkedin.com/in/' + this.data + '/'; }
+    },
+    template: `
+        <div>
+        <a :href=this.href_data>linkedin.com&#47;in&#47;{{ data }}</a>
+        </div>
+    `
+});
+
 Vue.component('phone', {
     props: ['data'],
     computed: {
@@ -66,8 +78,21 @@ Vue.component('date-ranges', {
             function process_date (d) {
                 return months[d.getMonth()-1] + '.' + d.getFullYear();
             }
-            
-            if ( !this.to ) {
+
+            function date_eqaul (a,b) {
+                if (typeof a !== typeof b) {
+                    return false;
+                }
+                return a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear();
+            }
+
+            if ( !this.from ) {
+                return 'Present';
+            }
+            else if ( date_eqaul(this.from, this.to) ) {
+                return process_date(this.from);
+            }
+            else if ( !this.to ) {
                 return process_date(this.from) + ' - ' + 'present';
             }
             else {
@@ -96,6 +121,7 @@ Vue.component('header-info', {
     <github v-bind:data=header_details.github></github>
     <phone v-bind:data=header_details.phone></phone>
     <website v-bind:data=header_details.website></website>
+    <linkedin v-bind:data=header_details.linkedin></linkedin>
     </div>
     </div>
     `
@@ -160,11 +186,12 @@ Vue.component('section-item', {
     <!--Extra info on the right-->
     <div class="right_info">
     <website v-if="section_details.link" v-bind:data="section_details.link"></website>
+    <github v-else-if="section_details.github" v-bind:data="section_details.github"></github>
     <location v-if="section_details.location" v-bind:data="section_details.location"></location>
     <date-ranges 
     v-if="section_details.date_from" 
     v-bind:from="section_details.date_from" 
-    v-bind:to="section_details.to"></date-ranges>
+    v-bind:to="section_details.date_to"></date-ranges>
     <comma-separated-list v-if="section_details.languages" v-bind:items="section_details.languages"></comma-separated-list>
     <comma-separated-list v-if="section_details.tools" v-bind:items="section_details.tools"></comma-separated-list>
     </div>
@@ -201,11 +228,20 @@ Vue.component('section-wrapper', {
 /* Simple section w/o extra data*/
 Vue.component('simple-section', {
     props: ['section_name', 'data'],
+    computed: {
+        flatten_data: function() {
+            if ( typeof this.data !== typeof [] ) {
+                return [this.data];
+            }
+            return this.data;
+        }
+    },
     template: `
-    <div v-if="data" class="section">
+    <div v-if="flatten_data" class="section">
     <h2>{{ section_name }}</h2>
     <div class="section_content">
-    <p>{{ data }}</p>
+    <p v-if="flatten_data.length == 1" v-for="i in flatten_data">{{ i }}</p>
+    <list v-bind:items="flatten_data"></list>
     </div>
     </div>
     `
