@@ -198,6 +198,20 @@ Vue.component('section-wrapper', {
 
 /* End section */
 
+/* Simple section w/o extra data*/
+Vue.component('simple-section', {
+    props: ['section_name', 'data'],
+    template: `
+    <div v-if="data" class="section">
+    <h2>{{ section_name }}</h2>
+    <div class="section_content">
+    <p>{{ data }}</p>
+    </div>
+    </div>
+    `
+});
+
+
 // Mount a section list for work experience items
 var work_experience = new Vue({
     el: '#work_experience_section',
@@ -213,5 +227,14 @@ var projects = new Vue({
     data: { 
         section_name: 'Projects', 
         data: data.project_items
+    }
+});
+
+// Mount Education
+var education = new Vue({
+    el: '#education',
+    data: {
+        section_name: 'Education', 
+        data: data.education_description
     }
 });
