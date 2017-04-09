@@ -23,7 +23,7 @@ img.svg-icon {
     position: relative;
     left: 50%;
     margin-left: -450px;
-    width: 1000px;
+    width: 940px;
     padding:5px;
     margin-top: 20px;
 }
@@ -63,15 +63,15 @@ img.svg-icon {
     margin-top: 0px;
     display: inline-block;
     float: right;
-    width: 277px;
+    width: 300px;
 }
 
 .resume_content .contact_info > div {
-  margin-bottom: -2px;
+    margin-bottom: -2px;
 }
 
 .resume_content .contact_info a {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .resume_content h2 {
@@ -115,6 +115,7 @@ img.svg-icon {
     position:relative;
     padding: 3px 0px 5px 0px;
     border-radius: 3px;
+    display: inline-block;
 }
 
 .resume_content .subsection .inner_content {
@@ -126,8 +127,10 @@ img.svg-icon {
 .resume_content .subsection .right_info {
     float: right;
     text-align: left;
-    margin-top: 0px;
-    width: 300px;
+    margin-top: -25px;
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 277px;
 }
 
 .resume_content .subsection .right_info * {
@@ -148,77 +151,56 @@ img.svg-icon {
 }
 
 .resume_content .subsection_header > * {
-  display: inline-block;
-  margin-left: 10px;
+    display: inline-block;
+    margin-left: 10px;
 }
 
 .resume_content .header_info {
-  margin-left: 10px;
-  font-size: 12px;
-  vertical-align: top;
-  margin-top: 13px;
+    margin-left: 10px;
+    font-size: 12px;
+    vertical-align: top;
+    margin-top: 13px;
 }
 
 .subsection + .subsection:before {
-  content: "";
-  position: absolute;
-  border-top: 1px solid #EEE;
-  top: 0;
-  width: 500px;
-  margin-top: 5px;
+    content: "";
+    position: absolute;
+    border-top: 1px solid #EEE;
+    top: 0;
+    width: 500px;
+    margin-top: 5px;
 }
 
 .subsection + .subsection .subsection_header {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .section {
-  overflow: hidden !important;
+    overflow: hidden !important;
 }
 
 .section h2:after {
-  content: "";
-  position: absolute;
-  bottom: 18px;
-  margin-left: 10px;
-  width: 100%;
-  border-top: 2px solid #F66;
+    content: "";
+    position: absolute;
+    bottom: 18px;
+    margin-left: 10px;
+    width: 100%;
+    border-top: 2px solid #F66;
 }
 
 .inner_content li, .right_info div {
-  line-height: 22px;
+    line-height: 22px;
 }
 
 .right_info > div {
-  height: 22px;
-}
-
-.contact_info .image_container, .right_info .image_container {
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.contact_info .image_container img, .right_info .image_container img {
-  margin-bottom: -2px;
-  max-width: 16px;
-  max-height: 16px;
+    height: 22px;
 }
 
 .resume_content .subsection .right_info img {
-  margin-bottom: -3px;
+    margin-bottom: -3px;
 }
 
-.contact_info .image_container {
-  position: relative;
-  top: 2px;
-}
-
-/* Fix for pdf rendering; makes the email icon a bit higher so it seems centered */
-.contact_info .image_container:nth-child(1) {
-  top: 0;
-}
-
-#school_section p {
-  margin-left: 15px;
-  margin-top: 5px;
+#education span {
+    margin-left: 15px;
+    margin-top: 5px;
 }
