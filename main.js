@@ -8,6 +8,7 @@ Vue.component('email', {
     },
     template: `
         <div>
+        <img class="svg-icon" src="icons/email.svg" />
         <a :href=this.href_data>{{ data }}</a>
         </div>
     `
@@ -18,6 +19,7 @@ Vue.component('website', {
     // TODO: trim protocol prefixes
     template: `
         <div>
+        <img class="svg-icon" src="icons/link.svg" />
         <a :href=data>{{ data }}</a>
         </div>
     `
@@ -27,7 +29,8 @@ Vue.component('location', {
     props: ['data'],
     template: `
         <div>
-        {{ data }}
+        <img class="svg-icon" src="icons/location.svg" />
+        <span>{{ data }}</span>
         </div>
     `
 });
@@ -39,7 +42,8 @@ Vue.component('github', {
     },
     template: `
         <div>
-        <a :href=this.href_data>github.com&#47;{{ data }}</a>
+        <img class="svg-icon" src="icons/github.svg" />
+        <a :href=this.href_data>{{ data }}</a>
         </div>
     `
 });
@@ -51,7 +55,8 @@ Vue.component('linkedin', {
     },
     template: `
         <div>
-        <a :href=this.href_data>linkedin.com&#47;in&#47;{{ data }}</a>
+        <img class="svg-icon" src="icons/linkedin.svg" />
+        <a :href=this.href_data>{{ data }}</a>
         </div>
     `
 });
@@ -64,8 +69,29 @@ Vue.component('phone', {
     },
     template: `
         <div>
+        <img class="svg-icon" src="icons/phone.svg" />
         <a :href=this.href_data>&#43;{{ this.formatted }}</a>
         </div>
+    `
+});
+
+Vue.component('languages', {
+    props: ['items'],
+    template: `
+    <div>
+    <img class="svg-icon" src="icons/code.svg" />
+    <comma-separated-list v-bind:items="items"></comma-separated-list>
+    </div>
+    `
+});
+
+Vue.component('tools', {
+    props: ['items'],
+    template: `
+    <div>
+    <img class="svg-icon" src="icons/tools.svg" />
+    <comma-separated-list v-bind:items="items"></comma-separated-list>
+    </div>
     `
 });
 
@@ -102,7 +128,8 @@ Vue.component('date-ranges', {
     },
     template: `
     <div>
-    {{ date_range_string }}
+    <img class="svg-icon" src="icons/calendar.svg" />
+    <span>{{ date_range_string }}</span>
     </div>
     `
 });
@@ -116,13 +143,15 @@ Vue.component('header-info', {
     template: `
     <div>
     <h1>{{ header_details.name }}</h1> 
+
     <div class="contact_info">
-    <email v-bind:data=header_details.email></email>
     <github v-bind:data=header_details.github></github>
-    <phone v-bind:data=header_details.phone></phone>
     <website v-bind:data=header_details.website></website>
     <linkedin v-bind:data=header_details.linkedin></linkedin>
+    <email v-bind:data=header_details.email></email>
+    <phone v-bind:data=header_details.phone></phone>
     </div>
+
     </div>
     `
 });
@@ -161,9 +190,9 @@ Vue.component('comma-separated-list', {
         }
     },
     template:`
-    <div>
+    <span>
     {{ comma_list }}
-    </div>
+    </span>
     `
 });
 
@@ -192,8 +221,8 @@ Vue.component('section-item', {
     v-if="section_details.date_from" 
     v-bind:from="section_details.date_from" 
     v-bind:to="section_details.date_to"></date-ranges>
-    <comma-separated-list v-if="section_details.languages" v-bind:items="section_details.languages"></comma-separated-list>
-    <comma-separated-list v-if="section_details.tools" v-bind:items="section_details.tools"></comma-separated-list>
+    <languages v-if="section_details.languages" v-bind:items="section_details.languages"></languages>
+    <tools v-if="section_details.tools" v-bind:items="section_details.tools"></tools>
     </div>
 
     </div>
