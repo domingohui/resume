@@ -128,8 +128,9 @@ svg {
     text-align: left;
     margin-top: -25px;
     margin-bottom: 15px;
+    margin-right: 40px;
     display: inline-block;
-    width: 220px;
+    width: 180px;
 }
 
 .resume_content .subsection .right_info * {
