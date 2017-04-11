@@ -45,6 +45,10 @@ svg {
     position:relative;
 }
 
+.resume_content #header {
+    margin-left: 5px;
+}
+
 .resume_content #resume_body {
     padding-top: 10px;
 }
@@ -53,15 +57,16 @@ svg {
     padding:0;
     margin:0;
     font-size: 72px;
+    width: 700px;
     display: inline-block
 }
 
 .resume_content .contact_info {
-    margin-left: 2px;
+    margin-right: 2px;
     margin-top: 0px;
     display: inline-block;
     float: right;
-    width: 300px;
+    width: 220px;
 }
 
 .resume_content .contact_info > div {
@@ -93,10 +98,6 @@ svg {
     margin-left: 10px;
 }
 
-.resume_content #work-experience_section {
-    margin-top: -25px;
-}
-
 .resume_content .section ul {
     padding-left: 20px;
     margin-top:0;
@@ -117,7 +118,7 @@ svg {
 }
 
 .resume_content .subsection .inner_content {
-    width: 600px;
+    width: 700px;
     display: inline-block;
     margin-left: 4px;
 }
@@ -128,7 +129,7 @@ svg {
     margin-top: -25px;
     margin-bottom: 15px;
     display: inline-block;
-    width: 277px;
+    width: 220px;
 }
 
 .resume_content .subsection .right_info * {
@@ -165,7 +166,7 @@ svg {
     position: absolute;
     border-top: 1px solid #EEE;
     top: 0;
-    width: 500px;
+    width: 100%;
     margin-top: 5px;
 }
 
