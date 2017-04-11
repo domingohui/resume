@@ -5,7 +5,11 @@ Uses Vue.js components
 With CSS inspired by [@TerranceN](https://eat.sleep.build/Resume/)
 
 
-Modify ```data.js``` to fill in resume's content. Open ```index.html```.
+### To use
+
+Modify ```data.js``` to fill in resume's content. 
+
+Open ```index.html```. Or use ```python -m http.server 8000``` (```python -m SimpleHTTPServer 8000``` for Python 2), then go to ```localhost:8000``` to avoid cross origin access error. 
 
 Save as pdf to export it as pdf. 
 
