@@ -8,7 +8,9 @@ Vue.component('email', {
     },
     template: `
         <div>
-        <img class="svg-icon" src="icons/email.svg" />
+        <svg xmlns="http://www.w3.org/2000/svg"> 
+        <use xlink:href="icons.svg#email"></use>
+        </svg>
         <a :href=this.href_data>{{ data }}</a>
         </div>
     `
@@ -24,7 +26,9 @@ Vue.component('website', {
     },
     template: `
         <div>
-        <img class="svg-icon" src="icons/link.svg" />
+        <svg xmlns="http://www.w3.org/2000/svg"> 
+        <use xlink:href="icons.svg#link"></use>
+        </svg>
         <a :href=data>{{ link }}</a>
         </div>
     `
@@ -34,7 +38,9 @@ Vue.component('location', {
     props: ['data'],
     template: `
         <div>
-        <img class="svg-icon" src="icons/location.svg" />
+        <svg xmlns="http://www.w3.org/2000/svg"> 
+        <use xlink:href="icons.svg#location"></use>
+        </svg>
         <span>{{ data }}</span>
         </div>
     `
@@ -47,7 +53,9 @@ Vue.component('github', {
     },
     template: `
         <div>
-        <img class="svg-icon" src="icons/github.svg" />
+        <svg xmlns="http://www.w3.org/2000/svg"> 
+        <use xlink:href="icons.svg#github"></use>
+        </svg>
         <a :href=this.href_data>{{ data }}</a>
         </div>
     `
@@ -60,7 +68,9 @@ Vue.component('linkedin', {
     },
     template: `
         <div>
-        <img class="svg-icon" src="icons/linkedin.svg" />
+        <svg xmlns="http://www.w3.org/2000/svg"> 
+        <use xlink:href="icons.svg#linkedin"></use>
+        </svg>
         <a :href=this.href_data>{{ data }}</a>
         </div>
     `
@@ -74,7 +84,9 @@ Vue.component('phone', {
     },
     template: `
         <div>
-        <img class="svg-icon" src="icons/phone.svg" />
+        <svg xmlns="http://www.w3.org/2000/svg"> 
+        <use xlink:href="icons.svg#phone"></use>
+        </svg>
         <a :href=this.href_data>&#43;{{ this.formatted }}</a>
         </div>
     `
@@ -83,20 +95,24 @@ Vue.component('phone', {
 Vue.component('languages', {
     props: ['items'],
     template: `
-    <div>
-    <img class="svg-icon" src="icons/code.svg" />
-    <comma-separated-list v-bind:items="items"></comma-separated-list>
-    </div>
+        <div>
+        <svg xmlns="http://www.w3.org/2000/svg"> 
+        <use xlink:href="icons.svg#code"></use>
+        </svg>
+        <comma-separated-list v-bind:items="items"></comma-separated-list>
+        </div>
     `
 });
 
 Vue.component('tools', {
     props: ['items'],
     template: `
-    <div>
-    <img class="svg-icon" src="icons/tools.svg" />
-    <comma-separated-list v-bind:items="items"></comma-separated-list>
-    </div>
+        <div>
+        <svg xmlns="http://www.w3.org/2000/svg"> 
+        <use xlink:href="icons.svg#tools"></use>
+        </svg>
+        <comma-separated-list v-bind:items="items"></comma-separated-list>
+        </div>
     `
 });
 
@@ -132,10 +148,12 @@ Vue.component('date-ranges', {
         }
     },
     template: `
-    <div>
-    <img class="svg-icon" src="icons/calendar.svg" />
-    <span>{{ date_range_string }}</span>
-    </div>
+        <div>
+        <svg xmlns="http://www.w3.org/2000/svg"> 
+        <use xlink:href="icons.svg#calendar"></use>
+        </svg>
+        <span>{{ date_range_string }}</span>
+        </div>
     `
 });
 

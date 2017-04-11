@@ -6,13 +6,11 @@ html body * {
     max-height: 999999px;
 }
 
-img.svg-icon {
+svg {
     width: 16px;
     height: 16px;
     display: inline-block;
-    opacity: 0.6;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
+    fill: grey;
 }
 
 .resume_content * {
