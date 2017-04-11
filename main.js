@@ -52,12 +52,12 @@ Vue.component('github', {
         href_data: function() { return 'https://github.com/' + this.data + '/'; }
     },
     template: `
-        <div>
+        <span>
         <svg xmlns="http://www.w3.org/2000/svg"> 
         <use xlink:href="icons.svg#github"></use>
         </svg>
         <a :href=this.href_data>{{ data }}</a>
-        </div>
+        </span>
     `
 });
 
