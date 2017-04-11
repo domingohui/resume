@@ -259,6 +259,9 @@ Vue.component('section-wrapper', {
     props: ['section_name', 'data'],
     computed: {
         sorted: function() {
+            if (typeof this.data === 'undefined') {
+                return undefined;
+            }
             let sort_by_key = this.data.sort_by_key || 'name';
             return this.data.data.sort((a,b) => {
                 return a[sort_by_key] < b[sort_by_key];
@@ -266,7 +269,7 @@ Vue.component('section-wrapper', {
         }
     },
     template: `
-    <div v-if="data" class="section">
+    <div v-if="sorted" class="section">
     <h2>{{ section_name }}</h2>
     <div class="section_content">
     <section-item v-for="item in sorted" v-bind:section_details="item"></section-item>
@@ -282,7 +285,11 @@ Vue.component('simple-section', {
     props: ['section_name', 'data'],
     computed: {
         flatten_data: function() {
+            if ( typeof this.data === 'undefined' ) {
+                return undefined;
+            }
             if ( typeof this.data !== typeof [] ) {
+                // Wrap data in array so it can display in a list
                 return [this.data];
             }
             return this.data;
@@ -327,5 +334,14 @@ var education = new Vue({
     data: {
         section_name: 'Education', 
         data: data.education_description
+    }
+});
+
+// Mount intersts section
+var education = new Vue({
+    el: '#interest',
+    data: {
+        section_name: 'Interest', 
+        data: data.interest
     }
 });

@@ -71,6 +71,10 @@ let data = {
         sort_by_key: 'name'
     },
 
+    interest: [
+        'Life'
+    ],
+
     education_description: [
         'Your school',
         'Online courses'
