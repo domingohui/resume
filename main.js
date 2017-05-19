@@ -227,7 +227,7 @@ Vue.component('section-item', {
     <!--Header-->
     <div class="subsection_header">
     <h3>{{ section_details.name }}</h3>
-    <div class="header_info">{{ section_details.role || 'Internship' }}</div>
+    <div class="header_info">{{ section_details.role || '' }}</div>
     </div>
 
     <!--Description-->
