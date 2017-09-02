@@ -212,13 +212,41 @@ var header = new Vue({
 
 /* Section item */
 
+// Bullet list
 Vue.component('list', {
   props: ['items'],
+  computed: {
+    parsed_items: function() {
+      // Parse <<<hyperlinks>>>
+      let LINK_PARSE_START = '<<<';
+      let LINK_PARSE_END = '>>>';
+      return this.items.map(i => {
+        if (i.substring(0, 3) === LINK_PARSE_START) {
+          let link_end_index = i.indexOf(LINK_PARSE_END);
+          let link = i.substring(LINK_PARSE_START.length, link_end_index);
+          let text = i.substring(link_end_index + LINK_PARSE_START.length);
+          return {_text: text, _link: link};
+        } else {
+          return i;
+        }
+      });
+    },
+  },
   template: `
     <ul>
 
-    <li v-for="i in items">
-    <span>{{ i }}</span>
+    <li v-for="i in parsed_items">
+
+    <span v-if="i._link">
+    <a :href=i._link>
+    {{ i._text }}
+    </a>
+    </span>
+
+    <span v-else>
+    {{ i }}
+    </span>
+
     </li>
 
     </ul>
