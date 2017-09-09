@@ -168,7 +168,6 @@ svg {
   border-top: 1px solid #EEE;
   top: 0;
   width: 100%;
-  margin-top: 5px;
 }
 
 .subsection + .subsection .subsection_header {
@@ -188,12 +187,13 @@ svg {
   border-top: 2px solid #F66;
 }
 
-.inner_content li, .right_info div {
+.inner_content li {
   line-height: 22px;
 }
 
 .right_info > div {
-  height: 22px;
+  line-height: 20px;
+  height: 18px;
 }
 
 .resume_content .subsection .right_info img {
