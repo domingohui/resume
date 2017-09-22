@@ -196,6 +196,8 @@ Vue.component('header-info', {
     <phone v-bind:data=header_details.phone></phone>
     </div>
 
+    <h4 class="education">{{ header_details.education }}</h4> 
+
     </div>
     `,
 });
@@ -221,7 +223,7 @@ Vue.component('list', {
       let LINK_PARSE_START = '<<<';
       let LINK_PARSE_END = '>>>';
       return this.items.map(i => {
-        if (i.substring(0, 3) === LINK_PARSE_START) {
+        if (i.substring(0, LINK_PARSE_START.length) === LINK_PARSE_START) {
           let link_end_index = i.indexOf(LINK_PARSE_END);
           let link = i.substring(LINK_PARSE_START.length, link_end_index);
           let text = i.substring(link_end_index + LINK_PARSE_START.length);
@@ -408,7 +410,7 @@ var projects = new Vue({
   },
 });
 
-// Mount Education
+/*
 var education = new Vue({
   el: '#education',
   data: {
@@ -416,12 +418,13 @@ var education = new Vue({
     data: data.education_description,
   },
 });
+*/
 
 // Mount intersts section
-var education = new Vue({
-  el: '#interest',
+var misc = new Vue({
+  el: '#miscellaneous',
   data: {
-    section_name: 'Interest',
-    data: data.interest,
+    section_name: 'Miscellaneous',
+    data: data.misc_description,
   },
 });

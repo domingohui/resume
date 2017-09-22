@@ -61,9 +61,20 @@ svg {
   display: inline-block;
 }
 
+.resume_content .education {
+  padding: 0;
+  margin: 0;
+  font-size: 17px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: -5px;
+  width: 700px;
+  display: inline-block;
+}
+
 .resume_content .contact_info {
-  margin-right: 2px;
-  margin-top: 0px;
+  margin-right: 4px;
+  margin-top: 15px;
   display: inline-block;
   float: right;
   width: 220px;
@@ -157,7 +168,7 @@ svg {
 
 .resume_content .header_info {
   margin-left: 6px;
-  font-size: 14px;
+  font-size: 16px;
   vertical-align: top;
   margin-top: 8px;
 }
@@ -185,6 +196,10 @@ svg {
   margin-left: 10px;
   width: 100%;
   border-top: 2px solid #F66;
+}
+
+.inner_content {
+  margin-top: 3px;
 }
 
 .inner_content li {
