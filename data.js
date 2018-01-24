@@ -5,6 +5,13 @@
  * ```main.js``` uses that to populate components.
  */
 
+let createYearMonth = (y,m) => {
+  if (m < 1 || m > 12) {
+    throw new Error ("Month must be between 1 and 12");
+  }
+  return new Date(y, m-1);
+}
+
 let data = {
     header: {
         name: 'Your Name',
@@ -27,9 +34,7 @@ let data = {
                     'More info',
                     'Rewrite REST backend',
                 ],
-                // Note: js month is 1 less than the convention we follow. 
-                // January, 2017 = new Date(2017, 1), December = new Date(2017, 11) 
-                date_from: new Date(2017, 4),
+                date_from: createYearMonth(2017, 12), // December 2017
                 date_to: undefined, // undefined date_to means an ongoing item
                 languages: ['C++', 'Python', 'Javascript'],
                 tools: ['Numpy', 'React.js', 'Git']
@@ -44,8 +49,8 @@ let data = {
                     'Met extraterrestrial species',
                     'Improved translator to communicate with the species'
                 ],
-                date_from: new Date(2016, 11),
-                date_to: new Date(2016, 11) // Shows up as one date
+                date_from: createYearMonth(2016,11),
+                date_to: createYearMonth(2016,11) // Shows up as one date
             },
         ],
         sort_by_key: 'date_from' // You can also sort items by name, for example
@@ -58,8 +63,8 @@ let data = {
                 name: 'Project',
                 role: 'Data Science Hackathon',
                 github: 'mygithub/project',
-                date_from: new Date(2017,1),
-                date_to: new Date(2017,4),
+                date_from: createYearMonth(2017,5),
+                date_to: createYearMonth(2017,5),
                 description: [
                     'Top 5 overall',
                 ],
