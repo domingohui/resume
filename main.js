@@ -218,21 +218,7 @@ var header = new Vue({
 Vue.component('list', {
   props: ['items'],
   computed: {
-    parsed_items: function() {
-      // Parse <<<hyperlinks>>>
-      let LINK_PARSE_START = '<<<';
-      let LINK_PARSE_END = '>>>';
-      return this.items.map(i => {
-        if (i.substring(0, LINK_PARSE_START.length) === LINK_PARSE_START) {
-          let link_end_index = i.indexOf(LINK_PARSE_END);
-          let link = i.substring(LINK_PARSE_START.length, link_end_index);
-          let text = i.substring(link_end_index + LINK_PARSE_START.length);
-          return {_text: text, _link: link};
-        } else {
-          return i;
-        }
-      });
-    },
+    parsed_items: function() { return parse_inline_html(this.items) },
   },
   template: `
     <ul>
@@ -377,6 +363,7 @@ Vue.component('simple-section', {
       }
       return this.data;
     },
+    parsed_items: function() { return parse_inline_html(this.data) },
   },
   template: `
     <div v-if="flatten_data" class="section">
@@ -384,7 +371,7 @@ Vue.component('simple-section', {
 
     <div class="section_content">
     <div class="inner_content">
-    <list v-bind:items="flatten_data"></list>
+    <list v-bind:items="parsed_items"></list>
     </div>
     </div>
 
@@ -420,7 +407,7 @@ var education = new Vue({
 });
 */
 
-// Mount intersts section
+// Mount misc section
 var misc = new Vue({
   el: '#miscellaneous',
   data: {

@@ -5,13 +5,6 @@
  * ```main.js``` uses that to populate components.
  */
 
-let createYearMonth = (y,m) => {
-  if (m < 1 || m > 12) {
-    throw new Error ("Month must be between 1 and 12");
-  }
-  return new Date(y, m-1);
-}
-
 let data = {
     header: {
         name: 'Your Name',
